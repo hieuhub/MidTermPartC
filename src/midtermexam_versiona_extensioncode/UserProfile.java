@@ -5,6 +5,8 @@
  */
 package midtermexam_versiona_extensioncode;
 
+import java.util.Scanner;
+
 /**
  * The user profile for the OnlineVids system. The user has a userID
  * and a favourite genre that must be one of the choices in the
@@ -60,9 +62,52 @@ public class UserProfile
     public void setGenre(String genre) {
         this.genre = genre;
     }
-    
-    
-    
-    
-    
 }//end class
+
+
+
+class TestUserProfile {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Choose your favorite genre:");
+        displayGenres();
+
+        int genreChoice;
+        do {
+            System.out.print("Enter the number of your favorite genre: ");
+            genreChoice = scanner.nextInt();
+        } while (genreChoice < 1 || genreChoice > 5);
+
+        String favoriteGenre = getGenreByChoice(genreChoice);
+
+        UserProfile userProfile = new UserProfile(name, favoriteGenre);
+        System.out.println("Your user profile was created!");
+    }
+    private static void displayGenres() {
+        System.out.println("1. Action");
+        System.out.println("2. Adventure");
+        System.out.println("3. Comedy");
+        System.out.println("4. Drama");
+        System.out.println("5. Sci-Fi");
+    }
+    private static String getGenreByChoice(int choice) {
+        switch (choice) {
+            case 1:
+                return "Action";
+            case 2:
+                return "Adventure";
+            case 3:
+                return "Comedy";
+            case 4:
+                return "Drama";
+            case 5:
+                return "Sci-fi";
+            default:
+                return null;
+        }
+    }
+}
