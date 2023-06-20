@@ -84,9 +84,12 @@ class TestUserProfile {
 
         String favoriteGenre = getGenreByChoice(genreChoice);
 
+        
+        //Create an userProfile object with new information from the user 
         UserProfile userProfile = new UserProfile(name, favoriteGenre);
         System.out.println("Your user profile was created!");
     }
+    //this method display the list of genres
     private static void displayGenres() {
         System.out.println("1. Action");
         System.out.println("2. Adventure");
@@ -94,6 +97,7 @@ class TestUserProfile {
         System.out.println("4. Drama");
         System.out.println("5. Sci-Fi");
     }
+    //this method uses switch case for user to choose a genre
     private static String getGenreByChoice(int choice) {
         switch (choice) {
             case 1:
